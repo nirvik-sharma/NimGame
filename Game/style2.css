@@ -1,0 +1,27 @@
+#box {
+    width: 800px;
+    height: 500px;
+    background-color: #b5e48c;
+    margin: 0 auto;
+}
+
+#main {
+    margin-top: 200px;
+    display: flex;
+    justify-content: center;
+}
+
+
+#outer {
+    display: flex;
+    justify-content: center;
+}
+
+
+.emoteBox {
+    width: 300px;
+    height: 500px;
+    background-color: #168AAD;
+    margin-left: 50px;
+    margin-right: 50px;;
+}
