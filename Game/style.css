@@ -66,10 +66,32 @@ font-family: 'Unica One', cursive;
     font-family: 'Unica One', cursive;
 }
 
+#startBtn {
+    background-color: #184E77;
+    margin-left: 135px;
+}
 
-/* #difficultyTitle, #player1Title, #player2Title {
-    font-family: 'NTR', sans-serif;
-} */
+#startBtn:hover {
+    background-color: #fff;
+    color: #184E77;
+}
+
+#easyBtn:hover {
+    background-color: #fff;
+    color: #d9ed92;
+}
+
+#medBtn:hover {
+    background-color: #fff;
+    color: #99d98c;
+}
+
+#hardBtn:hover {
+    background-color: #fff;
+    color: #34a0a4;
+}
+
+
 
 #gameRules {
     font-family: 'NTR', sans-serif;
@@ -313,4 +335,15 @@ span {
     top: 50%;
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
+}
+
+#moveIndicatorBox {
+    width: 400px;
+    height: 50px;
+    background-color: #fff;
+    border: 1.5px black solid;
+}
+
+#endTurnBtn {
+    background-color: #34A0A4;
 }
