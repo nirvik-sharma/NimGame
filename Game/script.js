@@ -1,4 +1,5 @@
 let board = [];
+let rowBtns = document.getElementsByClassName('rowBtns');
 
 let Start = () =>{
     let rows = document.getElementsByClassName('boardRows');
@@ -17,18 +18,44 @@ let Start = () =>{
 
 let RemoveDot = (row, evt) => {
     let dotsLeft = board[row].length
-    let btns = document.getElementsByClassName('rowBtns');
 
-    if (dotsLeft > 0){
+    if (dotsLeft == 1){
+        board[row][dotsLeft - 1].style.visibility = 'hidden';
+        board[row] = 0;
+        
+        evt.disabled = true;
+        evt.isEmpty = true;
+
+        CheckWin();
+    }
+    else if (dotsLeft > 0){
         board[row][dotsLeft - 1].style.visibility = 'hidden';
         board[row].pop();
     }
 
-    for (btn in btns){
-        if (btns[btn] != evt){
-            btns[btn].disabled = true;
+    for (btn in rowBtns){
+        if (rowBtns[btn] != evt){
+            rowBtns[btn].disabled = true;
         }
     }
+}
+
+let NextTurn = () => {
+    for (btn in rowBtns){
+        if (rowBtns[btn].isEmpty != true)
+            rowBtns[btn].disabled = false;
+    }
+    // change player turn
+}
+
+let CheckWin = () => {
+    for (row in board){
+        if (board[row] != 0){
+            return;
+        }
+    }
+    // declare winner
+    console.log('you lose/win');
 }
 
 Start();
