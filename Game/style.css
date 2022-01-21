@@ -96,7 +96,7 @@ html, body {
 
 #playerTurnIndicator {
     width: 300px;
-    height: 30px;
+    height: 26px;
     border: 1px solid black;
     border-radius: .375em;
     margin-right: 10px;
@@ -204,7 +204,7 @@ section {
 }
 
 #keyboard {
-    padding-left: 20px;
+    padding-left: 25px;
     display: grid;
     grid-template-columns: 50px 50px 50px 50px 50px 50px;
     justify-content: center;
