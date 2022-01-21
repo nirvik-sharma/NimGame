@@ -101,6 +101,8 @@ html, body {
     border-radius: .375em;
     margin-right: 10px;
     float: left;
+    font-family: 'NTR', sans-serif;
+    font-size: 18px;
     
 }
 
@@ -223,6 +225,14 @@ section {
     border-radius: .375em;
 
 }
+
+
+#chatboxText {
+    font-family: 'NTR', sans-serif;
+    font-size: 18px;
+}
+
+
 
 #right-side {
     /* float: right; */
