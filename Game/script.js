@@ -1,8 +1,15 @@
 let board = [];
 let rowBtns = document.getElementsByClassName('rowBtns');
+let players = [];
+let playerTurn = 0;
 
 let Start = () =>{
     let rows = document.getElementsByClassName('boardRows');
+    let player1 = document.getElementById('player1Name').value;
+    let player2 = document.getElementById('player2Name').value;
+
+    players = [player1, player2];
+    // document.getElementById('chatboxText').innerHTML += `<br>${players[playerTurn]}'s turn!`
 
     for (let row = 0; row < rows.length; row++){
         console.log(rows[row]);
@@ -14,6 +21,7 @@ let Start = () =>{
             console.log(board[row][dot]);
         }
     }
+
 }
 
 let RemoveDot = (row, evt) => {
@@ -45,7 +53,14 @@ let NextTurn = () => {
         if (rowBtns[btn].isEmpty != true)
             rowBtns[btn].disabled = false;
     }
-    // change player turn
+    if(playerTurn == 0){
+        playerTurn++;
+    } else{
+        playerTurn--;
+    }
+
+    // says who turn it is
+    // document.getElementById('chatboxText').innerHTML += `<br>${players[playerTurn]}'s turn!`
 }
 
 let CheckWin = () => {
@@ -54,8 +69,8 @@ let CheckWin = () => {
             return;
         }
     }
-    // declare winner
-    console.log('you lose/win');
-}
+    NextTurn();
 
-Start();
+    // declare winner
+    // document.getElementById('chatboxText').innerHTML += `<br>${players[playerTurn]} won!`
+}
