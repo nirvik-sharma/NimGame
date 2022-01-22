@@ -1,5 +1,8 @@
 let board = [];
 let rowBtns = document.getElementsByClassName('rowBtns');
+let playerOne;
+let playerTwo;
+
 
 let Start = () =>{
     let rows = document.getElementsByClassName('boardRows');
@@ -15,14 +18,17 @@ let Start = () =>{
         }
     }
 }
-
+let getNames = () =>{
+    playerOne = document.getElementById('player1Name').value;
+    playerTwo = document.getElementById('player2Name').value;
+    console.log(playerOne,playerTwo);
+}
 let RemoveDot = (row, evt) => {
     let dotsLeft = board[row].length
 
     if (dotsLeft == 1){
         board[row][dotsLeft - 1].style.visibility = 'hidden';
         board[row] = 0;
-        
         evt.disabled = true;
         evt.isEmpty = true;
 
@@ -42,8 +48,21 @@ let RemoveDot = (row, evt) => {
 
 let NextTurn = () => {
     for (btn in rowBtns){
-        if (rowBtns[btn].isEmpty != true)
+        if (rowBtns[btn].isEmpty != true){
             rowBtns[btn].disabled = false;
+            
+        if(counter == 1){
+            var chat= document.getElementById("playerTurnIndicator").value;
+            var chatbot = document.getElementById('chatboxText');
+            chatbot.innerText = playerOne +" says: " + chat;
+            console.log(counter);
+        }else if(counter == 0){
+            var chat= document.getElementById("playerTurnIndicator").value;
+            var chatbot = document.getElementById('chatboxText');
+            chatbot.innerText = playerTwo +" says: " + chat;
+            console.log(counter);
+        }
+        }
     }
     // change player turn
 }
@@ -57,5 +76,7 @@ let CheckWin = () => {
     // declare winner
     console.log('you lose/win');
 }
+
+//you can get play one and player 2 name
 
 Start();
