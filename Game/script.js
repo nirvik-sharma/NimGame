@@ -1,11 +1,23 @@
 let board = [];
 let rowBtns = document.getElementsByClassName('rowBtns');
+<<<<<<< HEAD
 let playerOne;
 let playerTwo;
 
+=======
+let players = [];
+let playerTurn = 0;
+>>>>>>> d4944a39a7ba9d68a012bd892ea74d1e8f86c529
 
 let Start = () =>{
     let rows = document.getElementsByClassName('boardRows');
+    let player1 = document.getElementById('player1Name').value;
+    let player2 = document.getElementById('player2Name').value;
+
+    players = [player1, player2];
+    playerTurn = 0;
+    EnableRowButtons();
+    // document.getElementById('chatboxText').innerHTML += `<br>${players[playerTurn]}'s turn!`
 
     for (let row = 0; row < rows.length; row++){
         console.log(rows[row]);
@@ -14,7 +26,8 @@ let Start = () =>{
         board[row] = [];
         for (let dot = 0; dot < rowDots.length; dot++){
             board[row][dot] = rowDots[dot];
-            console.log(board[row][dot]);
+            board[row][dot].style.visibility = 'visible';
+            //console.log(board[row][dot]);
         }
     }
 }
@@ -64,7 +77,14 @@ let NextTurn = () => {
         }
         }
     }
-    // change player turn
+    if(playerTurn == 0){
+        playerTurn++;
+    } else{
+        playerTurn--;
+    }
+
+    // says who turn it is
+    // document.getElementById('chatboxText').innerHTML += `<br>${players[playerTurn]}'s turn!`
 }
 
 let CheckWin = () => {
@@ -73,10 +93,18 @@ let CheckWin = () => {
             return;
         }
     }
+    NextTurn();
     // declare winner
-    console.log('you lose/win');
+    // document.getElementById('chatboxText').innerHTML += `<br>${players[playerTurn]} won!`
 }
 
+<<<<<<< HEAD
 //you can get play one and player 2 name
 
 Start();
+=======
+let EnableRowButtons = () =>{
+    for (btn in rowBtns){
+        rowBtns[btn].disabled = false;
+    }
+}
