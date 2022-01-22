@@ -9,6 +9,8 @@ let Start = () =>{
     let player2 = document.getElementById('player2Name').value;
 
     players = [player1, player2];
+    playerTurn = 0;
+    EnableRowButtons();
     // document.getElementById('chatboxText').innerHTML += `<br>${players[playerTurn]}'s turn!`
 
     for (let row = 0; row < rows.length; row++){
@@ -18,10 +20,10 @@ let Start = () =>{
         board[row] = [];
         for (let dot = 0; dot < rowDots.length; dot++){
             board[row][dot] = rowDots[dot];
-            console.log(board[row][dot]);
+            board[row][dot].style.visibility = 'visible';
+            //console.log(board[row][dot]);
         }
     }
-
 }
 
 let RemoveDot = (row, evt) => {
@@ -70,7 +72,12 @@ let CheckWin = () => {
         }
     }
     NextTurn();
-
     // declare winner
     // document.getElementById('chatboxText').innerHTML += `<br>${players[playerTurn]} won!`
+}
+
+let EnableRowButtons = () =>{
+    for (btn in rowBtns){
+        rowBtns[btn].disabled = false;
+    }
 }
